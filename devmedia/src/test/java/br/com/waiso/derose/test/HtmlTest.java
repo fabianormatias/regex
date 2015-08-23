@@ -17,7 +17,7 @@ public class HtmlTest {
 	@Before
 	public void palavra() {
 		palavra = new StringBuilder();
-		palavra.append("<p id=\"u8239-2\" data-i18n=\"desportiva.alta-performance\">alta performance</p>");
+		palavra.append("<p id=\"u8239-2\" data-i18n=\"desportASDFiva.alta-perfoASFDrmance\">alta performance</p>");
 		palavra.append("<p id=\"u8239-2\" data-i18n=\"desportiva-2.alta-performance\">alta performance</p>");
 		palavra.append("<p id=\"u8239-4\" data-i18n=\"desportiva.desportiva\">desportiva</p>");
 	}
@@ -26,15 +26,16 @@ public class HtmlTest {
 	public void padrao() {
 		padrao = new StringBuilder();
 		padrao.append("data-i18n=\"");
-		padrao.append("([a-zA-Z_0-9]*|[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*|[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*)");
+//		padrao.append("([a-zA-Z_0-9]*|[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*|[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*)");
+		padrao.append("([a-z_0-9]*|[a-z_0-9]*\\-[a-z_0-9]*|[a-z_0-9]*\\-[a-z_0-9]*\\-[a-z_0-9]*)");
 		padrao.append("\\.");
-		padrao.append("([a-zA-Z_0-9]*|[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*|[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*\\-[a-zA-Z_0-9]*)");
+		padrao.append("([a-z_0-9]*|[a-z_0-9]*\\-[a-z_0-9]*|[a-z_0-9]*\\-[a-z_0-9]*\\-[a-z_0-9]*)");
 		padrao.append("\"");
 	}
 
 	@Test
 	public void test() {
-		pattern = Pattern.compile(padrao.toString());
+		pattern = Pattern.compile(padrao.toString(), Pattern.CASE_INSENSITIVE);
 		// in case you would like to ignore case sensitivity,
 		// you could use this statement:
 		// Pattern pattern = Pattern.compile("\\s+", Pattern.CASE_INSENSITIVE);
